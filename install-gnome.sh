@@ -24,6 +24,7 @@ function banner() {
 if [ $shell -eq 1 ]; then
 	banner "Installing gnome-shell"
 	sudo pacman -Sy --needed gnome-shell
+	sudo pacman -Sy --needed gnome-control-center
 else
 	banner "Installing full gnome"
 	sudo pacman -Sy --needed gnome
