@@ -21,6 +21,9 @@ function banner() {
 banner "Installing xorg"
 yes | sudo pacman -S --needed --noconfirm xorg xorg-xinit >> /dev/null
 
+banner "Installing Nouveau"
+yes | sudo pacman -S --needed xf86-video-nouveau
+
 banner "Installing lightdm"
 yes | sudo pacman -S --needed lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings >> /dev/null
 
