@@ -14,9 +14,11 @@ function banner() {
 	tput sgr0
 }
 
-banner "Installing archives"
-yes | sudo pacman -S --needed p7zip unzip unrar zip
-banner "Installing vim"
-yes | sudo pacman -S --needed vim
-banner "Installing Midnight Commander and ranger"
-yes | sudo pacman -S --needed mc ranger
+banner "Installing Firefox"
+yes | sudo pacman -S --needed firefox
+yes | sudo pacman -S --needed chrome-gnome-shell
+
+banner "Installing discord"
+yes | sudo pacman -S --needed discord
+
+#banner "Installing "

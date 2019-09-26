@@ -6,6 +6,9 @@
 set -e -u
 umask 022
 
+# load general desktop stuff
+source general-desktop.sh
+
 # set extra to 1 if you want to install gnome-extra
 extra=0
 
@@ -20,21 +23,22 @@ function banner() {
 	tput sgr0
 }
 
+install_defaults
 
 if [ $shell -eq 1 ]; then
 	banner "Installing gnome-shell"
-	sudo pacman -S --needed gnome-shell
-	sudo pacman -S --needed gnome-control-center
+	yes | sudo pacman -S --needed gnome-shell
+	if [ $extra -eq 1 ]; then
+		banner "Installing gnome-extra"
+		yes | sudo pacman -S --needed gnome-extra
+	else
+		banner "installing indivual apps"
+		yes | sudo pacman -S --needed gnome-control-center
+		yes | sudo pacman -S --needed gnome-terminal
+		yes | sudo pacman -S --needed gnome-tweaks
+	fi
 else
 	banner "Installing full gnome"
-	sudo pacman -S --needed gnome
+	yes | sudo pacman -S --needed gnome
 fi
 
-if [ $extra -eq 1 ]; then
-	banner "Installing gnome-extra"
-	sudo pacman -S --needed gnome-extra
-else
-	banner "installing indivual apps"
-	sudo pacman -S --needed gnome-terminal
-	sudo pacman -S --needed gnome-tweaks
-fi
