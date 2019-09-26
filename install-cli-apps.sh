@@ -15,7 +15,7 @@ function banner() {
 }
 
 banner "Installing archives"
-yes | sudo pacman -S --needed p7zip unzip unrar zip
+yes | sudo pacman -S --needed p7zip unzip unrar zip unzip
 banner "Installing vim"
 yes | sudo pacman -S --needed vim
 banner "Installing Midnight Commander and ranger"
