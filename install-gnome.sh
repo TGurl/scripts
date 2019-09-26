@@ -23,14 +23,18 @@ function banner() {
 
 if [ $shell -eq 1 ]; then
 	banner "Installing gnome-shell"
-	sudo pacman -Sy --needed gnome-shell
-	sudo pacman -Sy --needed gnome-control-center
+	sudo pacman -S --needed gnome-shell
+	sudo pacman -S --needed gnome-control-center
 else
 	banner "Installing full gnome"
-	sudo pacman -Sy --needed gnome
+	sudo pacman -S --needed gnome
 fi
 
 if [ $extra -eq 1 ]; then
 	banner "Installing gnome-extra"
-	sudo pacman -Sy --needed gnome-extra
+	sudo pacman -S --needed gnome-extra
+else
+	banner "installing indivual apps"
+	sudo pacman -S --needed gnome-terminal
+	sudo pacman -S --needed gnome-tweaks
 fi
